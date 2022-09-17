@@ -14,6 +14,7 @@ public class Main {
     }
 
     public static void main(String[] args) throws IOException {
+        AccessMapping accessMap = new AccessMapping();
         ProductDatabase.loadProductDatabase();
         loginMenu();
     }
