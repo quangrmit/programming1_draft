@@ -113,7 +113,10 @@ public class OrderDatabase extends Database implements Manager {
     }
 
     // for admin only
-    static void displayAllOrders() {
+    public void displayAllOrders() {
+        if (!this.checkCompatibility()) {
+            return;
+        }
         loadOrderDatabase();
         // for (Order order:orders) {
         // order.displayInfo();
@@ -121,7 +124,10 @@ public class OrderDatabase extends Database implements Manager {
         TableGenerator.printTable(new File("Order.csv"));
     }
 
-    static void displayAllOrderByCustomerId() {
+    public void displayAllOrderByCustomerId() {
+        if (!this.checkCompatibility()) {
+            return;
+        }
         loadOrderDatabase();
         Scanner input = new Scanner(System.in);
         System.out.println("Enter customer ID");
@@ -135,7 +141,10 @@ public class OrderDatabase extends Database implements Manager {
         // Add validation to the input later (MUST ADD);
     }
 
-    static void updateOrderStatus() {
+    public void updateOrderStatus() {
+        if (!this.checkCompatibility()) {
+            return;
+        }
         loadOrderDatabase();
         Scanner input = new Scanner(System.in);
         System.out.println("Enter the wanted order");

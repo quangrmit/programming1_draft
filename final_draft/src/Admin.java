@@ -27,7 +27,7 @@ public class Admin extends User {
         return false;
     }
 
-    public static void addProduct() throws IOException {
+    public void addProduct() throws IOException {
         System.out.println("-Adding new product-");
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter product name: ");
@@ -49,18 +49,41 @@ public class Admin extends User {
 
     }
 
-    public static void updatePrice() {
+    public void updatePrice() {
         if (loggedIn) {
             (new ProductDatabase()).updatePrice();
         }
 
     }
 
-    public static void getOrderInfoByCid() throws FileNotFoundException {
+    public void getOrderInfoByCid() throws FileNotFoundException {
+        if (loggedIn) {
+            (new OrderDatabase()).displayAllOrderByCustomerId();
+        }
+    }
+
+    public void changeOrderStatus() {
+        if (loggedIn) {
+            (new OrderDatabase()).updateOrderStatus();
+        }
 
     }
 
-    public static void changeOrderStatus() {
+    public void viewAllProducts() {
+        if (loggedIn) {
+            (new ProductDatabase()).displayAll();
+        }
+    }
 
+    public void viewAllMembers() {
+        if (loggedIn) {
+            (new MemberDatabase()).displayAll();
+        }
+    }
+
+    public void viewAllOrders() {
+        if (loggedIn) {
+            (new OrderDatabase()).displayAllOrders();
+        }
     }
 }

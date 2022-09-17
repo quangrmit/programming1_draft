@@ -40,6 +40,13 @@ public class MemberDatabase extends Database implements Manager {
 
     }
 
+    public void displayAll() {
+        if (!this.checkCompatibility()) {
+            return;
+        }
+        TableGenerator.printTable(list, header);
+    }
+
     @Override
     public ArrayList<Member> getList() {
         return list;

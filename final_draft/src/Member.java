@@ -147,6 +147,19 @@ public class Member extends User {
         }
     }
 
+    public void viewAllProducts() {
+        if (loggedIn) {
+            (new ProductDatabase()).displayAll();
+        }
+    }
+
+    public void searchProductByCategory() {
+        if (loggedIn) {
+            (new ProductDatabase()).displayByCategory();
+            ;
+        }
+    }
+
     public void displayByPrice() throws FileNotFoundException {
         if (loggedIn) {
             (new ProductDatabase()).displayByPrice();

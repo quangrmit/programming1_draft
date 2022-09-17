@@ -74,9 +74,11 @@ public class Main {
             switch (input) {
                 case "1":
                     // View All Products
+                    guest.viewAllProducts();
                     break;
                 case "2":
                     // Search Product by category
+                    guest.searchProductByCategory();
                     break;
                 case "3":
                     guest.displayByPrice();
@@ -109,10 +111,12 @@ public class Main {
             switch (input) {
                 case "1":
                     // View All Product
+                    member.viewAllProducts();
                     break;
 
                 case "2":
                     // Search Product by category
+                    member.searchProductByCategory();
                     break;
                 case "3":
                     member.displayByPrice();
@@ -141,6 +145,8 @@ public class Main {
     }
 
     public static void adminMenu() throws IOException {
+        Admin admin = new Admin();
+        User.currentUser = admin;
         String input;
         while (true) {
             System.out.println(
@@ -151,27 +157,30 @@ public class Main {
             switch (input) {
                 case "1":
                     // view All products
+                    admin.viewAllProducts();
                     break;
                 case "2":
                     // view All members
+                    admin.viewAllMembers();
                     break;
                 case "3":
                     // view All orders
+                    admin.viewAllMembers();
                     break;
                 case "4":
-                    Admin.addProduct();
+                    admin.addProduct();
                     break;
 
                 case "5":
-                    Admin.updatePrice();
+                    admin.updatePrice();
                     break;
 
                 case "6":
-                    Admin.getOrderInfoByCid();
+                    admin.getOrderInfoByCid();
                     break;
 
                 case "7":
-                    Admin.changeOrderStatus();
+                    admin.changeOrderStatus();
                     break;
 
                 default:
